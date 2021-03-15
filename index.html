@@ -1,26 +1,141 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Hello World!</title>
-<style>
-    body {background-color: powderblue;}
-    h1{
-        color: rgb(87, 43, 112);
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
-    div   
-    {
-        color: rgb(84, 62, 161);
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        font-size: larger;
-        font-style: italic;
-    }
-    </style>
-</head>
-<body>
+    <head>
+        <title>Dagmara Nowak CV</title>
+        <link href="styl.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
 
-<h1>Hello World!</h1>
-<div>hello world...</div>
+        <header class="intro">
+            <h1 class= "title">DAGMARA NOWAK</h1>
+            <div class="ramkowana">CV</div>
+            <img class="background" src="tlo.jpg" alt="Tło">
+            
+        </header>
 
-</body>
+        <nav class="photo">
+        
+            <section class= "center kolkoZdjecie">
+            <img src="profilowe.jpg" alt="Moje zdjęcie">
+            </section>
+        </nav>
+        <nav class ="text">
+            <div class="flex-item info">
+                <h4>DATA URODZENIA</h4>
+                <hr/>
+                <p>08/12/2000</p>
+                <h4>ADRES</h4>
+                <hr/>
+                <p>ul. Ulica 0 Miasto</p>
+                <h4>TELEFON</h4>
+                <hr/>
+                <p>+48 987 876 456</p>
+                <h4>EMAIL</h4>
+                <hr/>
+                <p>dagmara@mail.student.com</p>
+                </div>
+            <div class="flex-item media">
+                <p class="center"><img class="logo" src="LinkedInlogo.svg" arc="logo LinkedIn">LinkedIn</p>
+                <p class="center"><img class="logo" src="FBlogo.svg" arc="logo Facebook">Facebook</p>
+                <p class="center"><img class="logo" src="GitHub.svg" arc="logo GitHub">GitHub</p>
+            </div>
+
+        </nav>
+
+        <main>
+            <div class="dark">
+                <section>
+                    <header>
+                        <h1>O MNIE</h1>
+                    </header>
+                    <article class="opis">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel egestas tortor. Mauris eu viverra nisi, non ultrices metus. Vivamus vulputate magna non commodo venenatis. Integer finibus sapien ac mauris dictum dapibus. Ut libero enim, laoreet et lacus et, consectetur bibendum magna. Integer viverra nisl non aliquet dapibus. Sed nec magna eget metus hendrerit pretium non quis felis.
+                    </article>
+                </section>
+                <section>
+                    <header>
+                        <h1>UMIEJĘTNOŚCI</h1>
+                    </header>
+                    <article class="flex-container umiejetnosci">
+                        <table class="flex-item">
+                            <tr>
+                                <td>R</td>
+                                <td><img class="rating" src="5star.svg"></td>
+                            </tr>
+                            <tr>
+                                <td>SQL</td>
+                                <td><img class="rating" src="5star.svg"></td>
+                            </tr>
+                            <tr>
+                                <td>Python</td>
+                                <td><img class="rating" src="5star.svg"></td>
+                            </tr>
+                        </table>
+                        <table class="flex-item">
+                            <tr>
+                                <td>C/C++</td>
+                                <td><img class="rating" src="5star.svg"></td>
+                            </tr>
+                            <tr>
+                                <td>.NET Framework</td>
+                                <td><img class="rating" src="5star.svg"></td>
+                            </tr>
+                            <tr>
+                                <td>HTML/CSS</td>
+                                <td><img class="rating" src="5star.svg"></td>
+                            </tr>
+                        </table>
+                    </article>
+                </section>
+            </div>
+            <div class="light flex-container">
+                <section class="flex-item edukacja">
+                    <header>
+                        <h1>EDUKACJA</h1>
+                        <p><span class="podtytul">10/2019 - dzisiaj</span></p>
+                    </header>
+                    <article>
+                        <b>Licencjat: Informatyka i Ekonometria</b><br/>
+                        Akademia Górniczo Hutnicza w Krakowie
+                    </article>
+                </section>
+                <section class="flex-item">
+                    <header>
+                        <h1>DOŚWIADCZENIE</h1>
+                        <p><span class="podtytul">09/2020 - dzisiaj</span></p>
+                    </header>
+                    <article>
+                        <b>Członek Wydziałowej Rady Samorządu Studenckiego</b><br/>
+                        <ul>
+                        <li>Prowadzenie mediów społecznościowych</li>
+                        <li>Oprawa graficzna</li>
+                        <li>Praca w zespole</li>
+                        </ul>
+                        
+                    </article>
+                </section>
+            </div>
+        </main>
+        <footer class="bottom">
+            <div class="languages flex-item">
+                <h3>JĘZYKI</h3>
+                <hr class="dark"/>
+                <div class="flex-container">
+                    <p class="flex-item"><img class="logo lang" src="C1.svg" arc="logo LinkedIn"><br/>Angielski</p>
+                    <p class="flex-item"><img class="logo lang" src="C2.svg" arc="logo LinkedIn"><br/>Polski</p>
+                </div>
+            </div>
+            
+            <div class="intrests flex-item">
+                <h3>ZAINTERESOWANIA</h3>
+                <hr/>
+                <div class="flex-container">
+                <p class="flex-item"><img class="logo small" src="design.svg"><br/>Design</p>
+                <p class="flex-item"><img class="logo small" src="piano.svg"><br/>Pianino</p>
+                <p class="flex-item"><img class="logo small" src="drawing.svg"><br/>Rysunek</p>
+                </div>
+            </div>
+        </footer>
+
+    </body>
 </html> 

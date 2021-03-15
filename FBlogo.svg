@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="13.52805mm"
+   height="13.52805mm"
+   viewBox="0 0 13.52805 13.52805"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="FBlogo.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-268.7209"
+     inkscape:cy="376.99339"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="986"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-16.670499,-235.05145)">
+    <path
+       id="path3495"
+       d="m 28.216899,235.05145 h -9.56475 c -1.09259,0 -1.98165,0.88907 -1.98165,1.98165 v 9.56476 c 0,1.09259 0.88906,1.98164 1.98165,1.98164 h 3.98972 v -4.78237 h -1.58532 v -2.37797 h 1.58532 v -1.61175 c 0,-1.3113 1.06668,-2.37798 2.37798,-2.37798 h 2.4044 v 2.37798 h -2.4044 v 1.61175 h 2.4044 l -0.39633,2.37797 h -2.00807 v 4.78237 h 3.19705 c 1.09259,0 1.98165,-0.88905 1.98165,-1.98164 v -9.56476 c 0,-1.09258 -0.88906,-1.98165 -1.98165,-1.98165 z m 0,0"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.02642197"
+       inkscape:export-filename="D:\wrss\WRSS WZ\Strona WRSS\FBlogo.png"
+       inkscape:export-xdpi="187.75806"
+       inkscape:export-ydpi="187.75806" />
+  </g>
+</svg>

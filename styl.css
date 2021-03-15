@@ -1,0 +1,256 @@
+body {
+    margin:0px;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color:rgb(22, 25, 39);
+    color: beige;
+    display: grid;
+    grid-template-columns: 14rem auto;
+    grid-template-areas:
+    "photograph  header"
+    "sidebar main"
+    "sidebar  footer";
+  }
+  nav {
+    grid-area: sidebar;
+    padding: 10px;
+    padding-top: 5px;
+    padding-left: 0px;
+  }
+  nav.photo{
+      grid-area: photograph;
+      padding-bottom: 25px;
+  }
+  main {
+    grid-area: main;
+    position: relative;
+  }
+  
+  .intro {
+    grid-area: header;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    padding-left: 50px;
+  }
+  
+    footer {
+    grid-area: footer;
+  }
+  section{
+      position: relative;
+  }
+
+  nav{
+      background-color: rgb(46, 36, 105);
+      color: beige;
+  }
+  footer {
+    background-color:rgb(22, 25, 39);
+    color: beige;
+  }
+  .title{
+      font-size: 3em;
+      margin-bottom: 10px;
+  }
+  .kolkoZdjecie{
+    position: relative;
+    margin-top: 40px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  .kolkoZdjecie img{
+      width: 200px;
+      height: auto;
+  }
+  section.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  img.background { 
+    position: fixed;
+    top: 0px;
+    left:0px;
+    width: 100%;
+    height:100%;
+    opacity: 0.3;
+    z-index: -2;
+    filter:grayscale(100%);
+  }
+
+  div.dark{
+      background-color: rgb(14, 14, 14);
+      color: beige;
+      padding: 10px;
+      padding-left:50px;
+      padding-bottom: 30px;
+      margin-right: 0px;
+      
+  }
+  div.light{
+    background-color: snow;
+    color: rgb(14, 14, 14);
+    padding: 10px;
+    padding-left:50px;
+    padding-bottom: 30px;
+    margin-right: 0px;
+}
+    div.ramkowana{
+    background-color: slateblue;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 100px;
+
+    padding:5px;
+    text-align: center;
+}
+.podtytul{
+    background-color: slateblue;
+    color: snow;
+    font-size:1em;
+    font-family: "Calibri";
+   padding:5px;
+}
+div.info{
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Calibri";
+    font-size: 1em;
+    width: 15em;
+    padding-left:1em;
+    
+}
+div.media{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.9em;
+    width: 15em;
+}
+.logo{
+    height: 1.9em;
+    width: auto;
+    padding:0.4em;
+}
+.small{
+    height: 2em;
+    padding:0.2em;
+    background-color:slateblue;
+    border-radius: 50%;
+    
+}
+.lang{
+    height: 2em;
+    font-style: bold;
+    padding:0.2em;
+    background-color:rgb(22, 25, 39);
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+p.center{
+    font-size: 1.2em;
+    display: flex;
+    justify-content:start;
+    align-items: center;
+}
+h4{
+    font-family: "Calibri";
+    color: rgb(163, 150, 250);
+    margin-bottom: 0px;
+}
+hr{
+    margin-top:1px;
+    margin-bottom: 1px;;
+    border-color: rgb(163, 150, 250);
+}
+div.info p{
+    margin-top:5px;
+    color: snow;
+    font-style: italic;
+}
+
+h3{
+    font-family: "Calibri";
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 1.2em;
+}
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    
+  }
+  article.umiejetnosci{
+    max-width:42em;
+  }
+  article.umiejetnosci td{
+    min-width: 8em;
+    text-align: left;
+  }
+  p.flex-item {
+    text-align: center;
+    flex-basis: 0;
+    flex-grow: 1;
+    
+  }
+  article.umiejetnosci.flex-container{
+    justify-content: flex-start;
+  }
+  .flex-item{
+    width:20em;
+    margin-right: 1em;
+  }
+  div.languages{
+    padding:10px;
+    padding-right: 10px;
+    background-color:rgb(163, 150, 250);
+    color:rgb(22, 25, 39);
+    margin-right: 20px;
+}
+div.intrests{
+  padding:10px;
+  background-color:rgb(22, 25, 39);
+  color: rgb(163, 150, 250);
+}
+hr.dark{
+    border-color:rgb(22, 25, 39);
+}
+img.rating{
+  width: auto;
+  padding:0.4em;
+  height: 1em;
+  vertical-align:middle;
+}
+nav.text {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content:flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.bottom{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content:space-around;
+  align-content: stretch;
+  align-items: stretch;
+}
+@media (max-width: 768px) {
+  nav.text {
+
+  }
+  nav.text:hover{
+    
+  }
+body{
+  grid-template-columns: 16rem auto;
+  grid-template-areas:
+  "photograph  header"
+  "sidebar sidebar"
+  "main main"
+  "footer footer"  ;
+}
+}
