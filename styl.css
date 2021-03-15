@@ -12,9 +12,9 @@ body {
   }
   nav {
     grid-area: sidebar;
-    padding: 10px;
-    padding-top: 5px;
-    padding-left: 0px;
+    padding: 5px 10px 10px 0px;
+    background-color: rgb(46, 36, 105);
+    color: beige;
   }
   nav.photo{
       grid-area: photograph;
@@ -34,18 +34,16 @@ body {
   
     footer {
     grid-area: footer;
+    background-color:rgb(22, 25, 39);
+    color: beige;
   }
   section{
       position: relative;
   }
-
-  nav{
-      background-color: rgb(46, 36, 105);
-      color: beige;
-  }
-  footer {
-    background-color:rgb(22, 25, 39);
-    color: beige;
+  section.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .title{
       font-size: 3em;
@@ -63,11 +61,7 @@ body {
       width: 200px;
       height: auto;
   }
-  section.center{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+
   img.background { 
     position: fixed;
     top: 0px;
@@ -80,20 +74,16 @@ body {
   }
 
   div.dark{
-      background-color: rgb(14, 14, 14);
-      color: beige;
-      padding: 10px;
-      padding-left:50px;
-      padding-bottom: 30px;
+      background-color: rgb(19, 17, 36);
+      color: rgb(204, 204, 204);
+      padding: 10px 10px 30px 50px;
       margin-right: 0px;
       
   }
   div.light{
-    background-color: snow;
+    background-color:snow;
     color: rgb(14, 14, 14);
-    padding: 10px;
-    padding-left:50px;
-    padding-bottom: 30px;
+    padding: 10px 10px 30px 50px;
     margin-right: 0px;
 }
     div.ramkowana{
@@ -102,7 +92,6 @@ body {
     font-weight: bold;
     margin-bottom: 10px;
     width: 100px;
-
     padding:5px;
     text-align: center;
 }
@@ -110,8 +99,10 @@ body {
     background-color: slateblue;
     color: snow;
     font-size:1em;
+    font-weight: bold;
     font-family: "Calibri";
    padding:5px;
+   margin-top:0.1em;
 }
 div.info{
     margin-left: auto;
@@ -168,14 +159,13 @@ hr{
 div.info p{
     margin-top:5px;
     color: snow;
-    font-style: italic;
 }
 
 h3{
     font-family: "Calibri";
     margin-bottom: 0px;
     margin-top: 0px;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 .flex-container {
     display: flex;
@@ -203,20 +193,23 @@ h3{
     width:20em;
     margin-right: 1em;
   }
-  div.languages{
+div.languages{
     padding:10px;
     padding-right: 10px;
     background-color:rgb(163, 150, 250);
     color:rgb(22, 25, 39);
-    margin-right: 20px;
+    flex-basis: 0;
+    flex-grow: 1;
 }
 div.intrests{
   padding:10px;
-  background-color:rgb(22, 25, 39);
+  background-color:rgb(19, 17, 36);
   color: rgb(163, 150, 250);
+  flex-basis: 0;
+    flex-grow: 1;
 }
 hr.dark{
-    border-color:rgb(22, 25, 39);
+    border-color:rgb(19, 17, 36);
 }
 img.rating{
   width: auto;
@@ -228,7 +221,7 @@ nav.text {
   display: flex;
   flex-flow: row wrap;
   justify-content:flex-start;
-  align-items: flex-start;
+  align-items: center;
   align-content: flex-start;
 }
 .bottom{
@@ -239,12 +232,6 @@ nav.text {
   align-items: stretch;
 }
 @media (max-width: 768px) {
-  nav.text {
-
-  }
-  nav.text:hover{
-    
-  }
 body{
   grid-template-columns: 16rem auto;
   grid-template-areas:
@@ -253,4 +240,7 @@ body{
   "main main"
   "footer footer"  ;
 }
+}
+.light h1{
+  margin-bottom: 0.1em;
 }
