@@ -1,0 +1,399 @@
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*Aplikacje background - rgba(60, 64, 67, 0.12)
+Aplikacje kolor - #5f6368*/
+
+body{
+    font-size: 14px;
+    min-width: 400px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color:#fff;
+    color: #222;
+    font-family: arial, sans-serif;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+    "top"
+    "main"
+    "footer";
+}
+
+header{
+    grid-area: top;
+    margin:6px;
+}
+
+main{
+    grid-area: main;
+}
+
+div.bottom{
+    padding: 15px 30px;
+    border-bottom: 1px solid #dadce0;
+    font-size: 15px;
+    color: rgba(0, 0, 0, .54)
+}
+
+footer.bottomest{
+    grid-area: footer;
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+footer{
+    background: #f2f2f2;
+
+}
+
+img.leaf{
+    height: 1em;
+    width:auto;
+}
+
+
+a.app:focus,
+a.app:focus:hover {
+    background-color: rgba(60, 64, 67, 0.1);
+    border-radius: 50%;
+}
+a.app:hover{
+    background-color: rgba(60, 64, 67, 0.08);
+    border-radius: 50%;
+}
+a.app:active{
+    background-color: rgba(60, 64, 67, 0.12);
+    border-radius: 50%;
+}
+img.app{
+    height: 16px;
+    width: 16px;
+    padding: 4px 0;
+}
+.menu-list {
+    display: none;
+    position: absolute;
+    list-style: none;
+    background: #fff;
+    border: 1px solid #70757a
+}
+/*Header*/
+.h-flex-cont{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+padding-right: 4px;
+padding-left: 32px;
+white-space: nowrap;
+}
+
+.h-flex-item{
+    align-items: center;
+}
+.links{
+    padding-right: 15px;
+}
+.clean-dark-link{
+    text-decoration: none;
+    font:13px/27px Roboto,RobotoDraft,Arial,sans-serif;
+    display: inline-block;
+    line-height: 24px;
+    vertical-align: middle;
+    padding-left: 15px;
+    color: rgba(0, 0, 0, 0.87);
+}
+.clean-dark-link:hover{
+    text-decoration: underline;
+}
+
+a.app{
+    position: relative;
+    display: inline-block;
+    outline: none;
+    vertical-align: middle;
+    box-sizing: border-box;
+    height: 40px;
+    width: 40px;
+    padding: 8px;
+    outline: none;
+    text-align:center;
+}
+.blue-button{
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #1a73e8;
+    background: #1a73e8;
+    font-family: Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: .25px;
+    line-height: 16px;
+    margin-left: 10px;
+    margin-right: 8px;
+    min-width: 96px;
+    padding: 9px 23px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+.blue-button:hover {
+    background: #2b7de9;
+    border: 1px solid #2b7de9;
+    box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15)
+}
+.blue-button:focus {
+    background: #5094ed;
+    border: 1px solid #5094ed;
+    box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15)
+
+}
+.blue-button:active{
+    background: #63a0ef;
+    border: 1px solid #63a0ef;
+    box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15)
+}
+@media only screen and (max-width:612px) {
+    .blue-button {
+        width:96px;
+    }
+    .h-flex-cont{
+        padding-left:0;
+    }
+
+}
+/*Main*/
+.m-flex-cont{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.m-flex-item{
+    padding:10px;
+    align-self: center;
+}
+.greyButtons{
+    text-align:center;
+}
+.search{
+    margin: 0 20px;
+}
+.stripe-flex{
+    background: #fff;
+    display: flex;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    border-radius: 30px;
+    height: 25px;
+    margin: 0 auto;
+    width: auto;
+    max-width: 584px;
+    line-height:normal;
+
+}
+.stripe-flex:hover,.stripe-flex:active {
+    box-shadow: 0 1px 6px rgba(32, 33, 36, .28);
+    border-color: rgba(223, 225, 229, 0)
+}
+.inside{
+    padding: 5px 8px 0 14px;
+    flex: 1;
+    width:100%;
+    height:100%;
+    display: flex;
+    line-height:normal;
+    justify-content: space-between;
+    align-items: center;
+
+}
+img.googleLogo{
+    width:272px;
+    height: 92px;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    align-items: center;
+}
+
+img.inputIcon{
+    width: 15px;
+    align-self: flex-start;
+    height: 15px;
+    padding-right: 13px;
+}
+img.inputIcon-keyboard{
+    width: 20px;
+    height: 20px;
+    align-self: flex-start;
+    cursor:pointer;
+    padding-right: 0;
+    padding-left:10px;
+    margin-right:0
+}
+.inputSearch{
+    color: transparent;
+    flex: 100%;
+    white-space: pre;
+    height: 34px;
+    padding:0;
+    margin:0;
+    background-color: transparent;
+    border: none;
+    color: rgba(0,0,0,.87);
+    word-wrap: break-word;
+    font-size: 16px;
+    align-self: flex-end;
+
+}
+.grey-button{
+    background-color: #f8f9fa;
+border: 1px solid #f8f9fa;
+border-radius: 4px;
+color: #3c4043;
+font-family: arial,sans-serif;
+font-size: 14px;
+margin: 11px 4px;
+padding: 0 16px;
+line-height: 27px;
+height: 36px;
+min-width: 54px;
+text-align: center;
+cursor: pointer;
+user-select: none;
+}
+.grey-button:hover{
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    color: #202124;
+}
+.grey-button:focus{
+    border: 1px solid #4d90fe;
+    outline: none;
+}
+/*Footer-bottomest*/
+.f-flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.f-flex-item{
+    display: block;
+}
+.leafy{
+    white-space: nowrap;
+    order:2;
+    height: 14px;
+    margin-right: 6px;
+    padding:15px;
+
+}
+@media only screen and (max-width:1200px) {
+    .f-flex-container {
+        justify-content: space-evenly;
+    }
+    .leafy {
+        order: 0;
+        width: 100%;
+        justify-content: center;
+        text-align:center;
+    }
+
+}
+
+.clean-link{
+    text-decoration:none;
+    color: #70757a;
+}
+.clean-link:focus{
+    border-width: 1px;;
+    border-color: #70757a;
+    border-style: dotted;
+}
+.pad{
+    padding: 15px;
+
+}
+.clean-link:hover{
+    text-decoration: underline;
+}
+.section-flex{
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 30%;
+}
+.section-flex-item{
+    padding-right: 20px;
+    
+}
+.clean-button{
+    border: none;
+    
+}
+.i1st{
+    order:1;
+    justify-content: flex-start;
+}
+.i3rd{
+    order:3;
+    justify-content: flex-end;
+    padding:15px;
+}
