@@ -247,6 +247,7 @@ a.app{
     width: auto;
     max-width: 584px;
     line-height:normal;
+    margin-bottom:10px;
 
 }
 .stripe-flex:hover,.stripe-flex:active {
@@ -268,6 +269,7 @@ img.googleLogo{
     width:272px;
     height: 92px;
     max-height: 100%;
+    margin-bottom:15px;
     object-fit: contain;
     object-position: center bottom;
     align-items: center;
