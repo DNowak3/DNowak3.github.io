@@ -1,0 +1,25 @@
+[33mtag v1.0.0[m
+Tagger: DNowak3 <danowak@student.agh.edu.pl>
+Date:   Sun Mar 28 18:47:37 2021 +0200
+
+google tag v1.0.0
+
+[33mcommit 0d983e1b1d61f6bc58937bbc860758669d944cff[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;33mtag: v1.0.0[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: DNowak3 <danowak@student.agh.edu.pl>
+Date:   Mon Mar 22 18:45:40 2021 +0100
+
+    .
+
+[1mdiff --git a/google/index.html b/google/index.html[m
+[1mindex 7dafc58..e3edc6e 100644[m
+[1m--- a/google/index.html[m
+[1m+++ b/google/index.html[m
+[36m@@ -14,7 +14,7 @@[m
+                     <a class="clean-dark-link"  href="https://www.google.pl/imghp?hl=pl&ogbl">Grafika</a>[m
+                 </section>[m
+                 <section class="h-flex-item app">[m
+[31m-                <a class="app" title="Aplikacje Google" href="https://www.google.pl/intl/pl/about/products" aria-label="Aplikacje Google"><img class="app" src="aplikacje.svg"/></a> [m
+[32m+[m[32m                <a class="app" title="Aplikacje Google" href="https://www.google.pl/intl/pl/about/products" aria-label="Aplikacje Google"><img class="app" src="Grafiki/aplikacje.svg"/></a>[m[41m [m
+                 </section>[m
+                 <section class="h-flex-item">[m
+                     <a class="blue-button" href="https://accounts.google.com/ServiceLogin?hl=pl&amp;passive=true&amp;continue=https://www.google.com/&amp;ec=GAZAmgQ">Zaloguj się</a>[m

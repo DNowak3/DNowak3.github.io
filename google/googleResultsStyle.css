@@ -1,0 +1,212 @@
+
+.results .googleLogo{
+    position: absolute;
+    left: 0px;
+    padding: 4px 28px 0 30px;
+    top: 26px;
+    height: 28px;
+    width: 86px;
+    cursor: pointer;
+}
+body.results{
+    font-family: arial,sans-serif;
+    color: #202124;
+    font-size: 14px;
+    grid-template-rows: auto 1fr auto;
+}
+.results #ggl-main-link{
+    display: initial;
+}
+.results .h-flex-cont{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+.results .app{
+    align-items: center;
+}
+
+.results img.inputIcon-clear{
+    width: 14px;
+    height: 14px;
+    margin-right: 14px;
+    padding-left:10px;
+    align-self:center;
+}
+.results span.line{
+    border-right: 1px solid #dfe1e5;
+    display: inline-block;
+    height: 34px;
+}
+.results .inside{
+    padding: 0px;
+    width:100%;
+    height:44px;
+    display: flex;
+    line-height:normal;
+}
+.results .inputSearch{
+    align-self:center;
+}
+.results .X{
+    display:flex;
+    align-self:center;
+    cursor:pointer;
+    margin:0px;
+}
+.results .inputIcon-keyboard{
+    align-self:center;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.results .inputIcon{
+    align-self:center;
+}
+.results #SearchButton{
+    display: flex;
+    padding-right: 13px;
+    height: 44px;
+    width: 44px;
+    background: transparent;
+border: none;
+cursor: pointer;
+}
+.results .navigation{
+    margin-left: 169px;
+}
+.results .top_stripe{
+    position: sticky;
+    top:0;
+    margin-bottom:22px;
+    margin-top:10px;
+    margin-left: 133px;
+    width: 692px;
+    height:44px;
+    padding-left: 27px;
+    margin-right: 40px;
+    padding-top:0px;
+    padding-bottom:0px;
+}
+.results .referance{
+    display: initial;
+    text-decoration: none;
+    color: #70757a;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: arial,sans-serif;
+    white-space: nowrap;
+    height: 16px;
+line-height: 16px;
+margin: 11px 1px 0;
+padding: 16px 12px 12px 10px;
+}
+
+.results .referance.active{
+        border-bottom: 3px solid #1a73e8;
+        color: #1a73e8;
+    
+}
+.results header{
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom:15px;
+    min-width: 1261px;
+    
+}
+
+
+
+/*Main*/
+.results .searches-time{
+    font-size: 14px;
+    color: #70757a;
+    line-height: 43px;
+    white-space: nowrap;
+    font-family: Google Sans,arial,sans-serif;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 8px;
+    min-width: 652px;
+    margin-left: 180px;
+}
+
+
+/*Footer*/
+.results footer{
+    position: relative;
+    width:100%;
+    min-width: 1261px;
+    margin-right: 0px;
+}
+.results div.bottom{
+    border-bottom: 1px solid #dadce0;
+    border-top: 1px solid #dadce0;
+    
+
+}
+.results .dot{
+    background: #70757a;
+    border-radius: 100%;
+display: inline-block;
+height: 10px;
+margin: 6px 4px 9px 0;
+vertical-align: middle;
+width: 10px;
+}
+.results .location{
+    margin-left: 13px;
+    padding-left: 16px;
+    border-left: 1px solid #dadce0;
+    line-height: 15px;
+    color: #70757a;
+    font-size: 14px;
+}
+.results .bottom{
+    white-space: nowrap;
+    padding:0px;
+    line-height: 40px;
+
+}
+.results .location a{
+    text-decoration: none;
+    color: #70757a;
+}
+.results .location b{
+    color: #3c4043;
+}
+.results .locate{
+    margin-left: 180px;
+}
+.results .i3rd{
+    line-height: 40px;
+    margin-left: 153px;
+    padding-left:0px;
+    white-space: nowrap;
+    font-size: 14px;
+    
+}
+.results .clean-link{
+    padding-left: 27px;
+}
+/*display: none;*/
+.results .from_main{
+    display: none;
+}
+.results .i1st{
+    display: none;
+}
+.results .leafy{
+    display: none;
+}
+.results .menu{
+    display: none;
+}
+.results .greyButtons{
+    display: none;
+}
+.results header .links{
+    display:none;
+}
+
+
