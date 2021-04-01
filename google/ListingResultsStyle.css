@@ -84,6 +84,7 @@ color: #202124;
     border-collapse:collapse;
     text-align:center;
     margin:30px auto 30px;
+    align-self: center;
 }
 .results .letter.arrow{
     font-size: 15px;
@@ -153,7 +154,12 @@ color: #202124;
     padding: 10px;
     align-self: center;
 }
+.results .searches,
+.results .similar{
+    margin-left: 180px;
+    max-width: 48em;
 
+}
 .results .similar h3{
     font-weight: normal;
     font-family: Google Sans,arial,sans-serif;

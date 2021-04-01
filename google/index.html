@@ -8,11 +8,15 @@
     <link href="ListingResultsStyle.css" rel="stylesheet" />
     <link rel="shortcut icon" href="title_logo.svg" />
 
+    <script type = "text/javascript" src = "vue.js"></script>
     <title>Google</title>
-</head>
 
-<body class="results">
-    <header>
+</head>
+<body   class="home"  >
+    <div id="app" :class="{results : googleSearch.length>0}">
+
+
+    <header >
         <div class="h-flex-cont">
             <section class="h-flex-item links">
                 <a class="clean-dark-link" href="https://mail.google.com/mail/&ogbl">Gmail</a>
@@ -55,29 +59,34 @@
         </div>
     </header>
 
-    <main>
+    <main >
         <div class="m-flex-cont">
             <div class="searches-time">Około 151 000 000 wyników (0,51 s)</div>
             <section class="m-flex-item"><a id="ggl-main-link"
                     href="https://www.google.com/webhp?hl=pl&sa=X&ved=0ahUKEwj4qcOGvtPvAhWPtYsKHYjEAlgQPAgI"
                     title="Przejdź do strony głównej Google"><img class="googleLogo" alt="Google"
                         src="Grafiki/Google-Logo.png" /></a></section>
-            <form class="search" action="/search">
+            <form class="search" action="/search" >
                 <section class="m-flex-item stripe-flex from_main">
-                    <div class="inside">
+                    <div  class="inside" >
+                        
                         <img class="inputIcon" src="Grafiki/search.svg" />
-                        <input class="inputSearch" type="text" aria-label="Szukaj" maxlength="2048" />
+                        <input class="inputSearch" type="text" aria-label="Szukaj" maxlength="2048" v-model="googleSearch" placeholder="Szukaj" />
                         <img title="Wyczyść" class="inputIcon-clear" src="Grafiki/clear.svg" aria-label="Wyczyść"
                             role="button" />
                         <img title="Narzędzia do wprowadzania tekstu" class="inputIcon-keyboard"
                             src="Grafiki/keyboard.svg" aria-label="Narzędzia do wprowadzania tekstu" role="button" />
-                    </div>
+ 
+                        </div>
                 </section>
                 <div class="m-flex-item greyButtons">
                     <input class="grey-button sub" type="submit" value="Szukaj w Google" />
                     <input class="grey-button" type="submit" value="Szczęśliwy traf" />
+                    {{ googleSearch }}
                 </div>
+
             </form>
+
         </div>
         <div class="listing">
             <div class="searches">
@@ -255,7 +264,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            <div class="cont_central">
             <table class="ggl_table">
                     <tr>
                         <td>
@@ -378,6 +387,7 @@
                     </tr>
             </table>
         </div>
+        </div>
     </main>
     <footer class="bottomest">
         <div class="bottom">
@@ -436,6 +446,18 @@
             </section>
         </div>
     </footer>
-</body>
 
+
+
+</div>
+
+</body>
+<script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        googleSearch:''
+      }
+    })
+  </script>
 </html>

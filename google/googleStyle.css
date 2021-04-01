@@ -56,20 +56,18 @@ table {
 Aplikacje kolor - #5f6368*/
 html{
     height: 100%;
-    width: 100%;
-    
     margin: 0;
-    padding: 0;
 }
-body{
+body.home{
     font-size: 14px;
     min-width: 400px;
+    min-height: 100vh;
     background-color:#fff;
     color: #222;
     font-family: arial, sans-serif;
     display: grid;
     align-content: space-between;
-    grid-template-rows: 50px 100% 100px;
+    grid-template-rows: 50px 1fr 100px;
     grid-template-areas:
     "top"
     "main"
@@ -83,6 +81,7 @@ body header{
 
 body main{
     grid-area: main;
+    position:relative;
     align-self: center;
   justify-self: center;
   margin-top:auto;
@@ -249,9 +248,7 @@ body .blue-button:active{
 .home .greyButtons{
     text-align:center;
 }
-.home{
-    margin: 0 20px;
-}
+
 body .stripe-flex{
     background: #fff;
     display: flex;
@@ -284,10 +281,7 @@ body .stripe-flex:hover,.stripe-flex:active {
 .home img.googleLogo{
     width:272px;
     height: 92px;
-    max-height: 100%;
     margin-bottom:15px;
-    object-fit: contain;
-    object-position: center bottom;
     align-items: center;
 }
 
@@ -443,3 +437,7 @@ body .clean-link:hover{
 .home .listing{
     display:none;
 }
+
+.red{
+    background-color: red;
+} 
