@@ -15,7 +15,7 @@
 </head>
 
 <body class="home">
-    <div id="app" :class="{results : googleSearch.length>0}">
+    <div id="app" :class="{results : googleSearch.length > 0}">
 
 
         <header>
@@ -26,7 +26,7 @@
                 </section>
                 <section class="m-flex-item stripe-flex top_stripe">
                     <div class="inside">
-                        <input class="inputSearch" ref="second" v-model="googleSearch"  type="text"
+                        <input class="inputSearch" ref="top" v-model="googleSearch"  type="text"
                             aria-label="Szukaj" maxlength="2048" />
                         <div class="X">
 
@@ -65,11 +65,13 @@
         <main>
 
             <div class="m-flex-cont">
-                <ul>
+                <div id=citiesNames>
+                <ul >
                     <li v-for="city in filteredCities">
                         {{ city.name }}
                     </li>
                 </ul>
+            </div>
                 <div class="searches-time">Około 151 000 000 wyników (0,51 s)</div>
                 <section class="m-flex-item"><a id="ggl-main-link"
                         href="https://www.google.com/webhp?hl=pl&sa=X&ved=0ahUKEwj4qcOGvtPvAhWPtYsKHYjEAlgQPAgI"
@@ -80,7 +82,7 @@
                         <div class="inside">
 
                             <img class="inputIcon" src="Grafiki/search.svg" />
-                            <input class="inputSearch" ref="first" type="text" aria-label="Szukaj" maxlength="2048"
+                            <input class="inputSearch" ref="bottom" type="text" aria-label="Szukaj" maxlength="2048"
                                 v-model="googleSearch" placeholder="Szukaj" />
                             <img title="Wyczyść" class="inputIcon-clear" src="Grafiki/clear.svg" aria-label="Wyczyść"
                                 role="button" />
@@ -93,7 +95,6 @@
                     <div class="m-flex-item greyButtons">
                         <input class="grey-button sub" type="submit" value="Szukaj w Google" />
                         <input class="grey-button" type="submit" value="Szczęśliwy traf" />
-                        {{ googleSearch }}
                     </div>
 
                 </form>
@@ -483,13 +484,13 @@
         updated() {
             this.$nextTick(() => {
 
-                if (this.googleSearch > 0) {
+                if (this.googleSearch.length > 0) {
 
-                    this.$refs.second.focus();
+                    this.$refs.top.focus();
 
                 } else {
 
-                    this.$refs.first.focus();
+                    this.$refs.bottom.focus();
 
                 }
 
@@ -498,8 +499,11 @@
         },
         computed: {
             filteredCities: function () {
-                // `this` points to the vm instance
-                //return this.cities.filter(city => city.name.includes(this.googleSearch)).slice(1, 10)
+                let result=this.cities.filter(city => city.name.includes(this.googleSearch));
+                if(result.length>10){
+                    return result.slice(1, 11);
+                }
+                return result;
             }
         },
 

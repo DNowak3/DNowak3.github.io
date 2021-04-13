@@ -438,6 +438,6 @@ body .clean-link:hover{
     display:none;
 }
 
-.red{
-    background-color: red;
-} 
+#citiesNames{
+    display: none;
+}
