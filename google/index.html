@@ -8,456 +8,502 @@
     <link href="ListingResultsStyle.css" rel="stylesheet" />
     <link rel="shortcut icon" href="title_logo.svg" />
 
-    <script type = "text/javascript" src = "vue.js"></script>
+    <script type="text/javascript" src="vue.js"></script>
+    <script src="cities.js"></script>
     <title>Google</title>
 
 </head>
-<body   class="home"  >
+
+<body class="home">
     <div id="app" :class="{results : googleSearch.length>0}">
 
 
-    <header >
-        <div class="h-flex-cont">
-            <section class="h-flex-item links">
-                <a class="clean-dark-link" href="https://mail.google.com/mail/&ogbl">Gmail</a>
-                <a class="clean-dark-link" href="https://www.google.pl/imghp?hl=pl&ogbl">Grafika</a>
-            </section>
-            <section class="m-flex-item stripe-flex top_stripe">
-                <div class="inside">
-                    <input class="inputSearch" type="text" aria-label="Szukaj" maxlength="2048" />
-                    <div class="X">
+        <header>
+            <div class="h-flex-cont">
+                <section class="h-flex-item links">
+                    <a class="clean-dark-link" href="https://mail.google.com/mail/&ogbl">Gmail</a>
+                    <a class="clean-dark-link" href="https://www.google.pl/imghp?hl=pl&ogbl">Grafika</a>
+                </section>
+                <section class="m-flex-item stripe-flex top_stripe">
+                    <div class="inside">
+                        <input class="inputSearch" ref="second" v-model="googleSearch"  type="text"
+                            aria-label="Szukaj" maxlength="2048" />
+                        <div class="X">
 
-                        <img title="Wyczyść" class="inputIcon-clear" src="Grafiki/clear.svg" aria-label="Wyczyść"
-                            role="button" />
-                        <span class="line"></span>
-                    </div>
-                    <img title="Narzędzia do wprowadzania tekstu" class="inputIcon-keyboard" src="Grafiki/keyboard.svg"
-                        aria-label="Narzędzia do wprowadzania tekstu" role="button" />
-                    <button id="SearchButton" type="submit" aria-label="Szukaj w Google"><img class="inputIcon"
-                            src="Grafiki/search_blue.svg" /></button>
-                </div>
-            </section>
-            <section class="h-flex-item app">
-                <a class="app" title="Aplikacje Google" href="https://www.google.pl/intl/pl/about/products"
-                    aria-label="Aplikacje Google"><img class="app" src="Grafiki/aplikacje.svg" /></a>
-
-                <a class="blue-button"
-                    href="https://accounts.google.com/ServiceLogin?hl=pl&amp;passive=true&amp;continue=https://www.google.com/&amp;ec=GAZAmgQ">Zaloguj
-                    się</a>
-            </section>
-        </div>
-        <div class="navigation">
-            <section class="referance active">Wszystko</section>
-            <section class="referance">Grafika</section>
-            <section class="referance">Mapy</section>
-            <section class="referance">Wiadomości</section>
-            <section class="referance">Wideo</section>
-            <section class="referance">Więcej</section>
-            <section class="referance">Ustawienia</section>
-            <section class="referance">Narzędzia</section>
-
-        </div>
-    </header>
-
-    <main >
-        <div class="m-flex-cont">
-            <div class="searches-time">Około 151 000 000 wyników (0,51 s)</div>
-            <section class="m-flex-item"><a id="ggl-main-link"
-                    href="https://www.google.com/webhp?hl=pl&sa=X&ved=0ahUKEwj4qcOGvtPvAhWPtYsKHYjEAlgQPAgI"
-                    title="Przejdź do strony głównej Google"><img class="googleLogo" alt="Google"
-                        src="Grafiki/Google-Logo.png" /></a></section>
-            <form class="search" action="/search" >
-                <section class="m-flex-item stripe-flex from_main">
-                    <div  class="inside" >
-                        
-                        <img class="inputIcon" src="Grafiki/search.svg" />
-                        <input class="inputSearch" type="text" aria-label="Szukaj" maxlength="2048" v-model="googleSearch" placeholder="Szukaj" />
-                        <img title="Wyczyść" class="inputIcon-clear" src="Grafiki/clear.svg" aria-label="Wyczyść"
-                            role="button" />
+                            <img title="Wyczyść" class="inputIcon-clear" src="Grafiki/clear.svg" aria-label="Wyczyść"
+                                role="button" />
+                            <span class="line"></span>
+                        </div>
                         <img title="Narzędzia do wprowadzania tekstu" class="inputIcon-keyboard"
                             src="Grafiki/keyboard.svg" aria-label="Narzędzia do wprowadzania tekstu" role="button" />
- 
-                        </div>
+                        <button id="SearchButton" type="submit" aria-label="Szukaj w Google"><img class="inputIcon"
+                                src="Grafiki/search_blue.svg" /></button>
+                    </div>
                 </section>
-                <div class="m-flex-item greyButtons">
-                    <input class="grey-button sub" type="submit" value="Szukaj w Google" />
-                    <input class="grey-button" type="submit" value="Szczęśliwy traf" />
-                    {{ googleSearch }}
-                </div>
+                <section class="h-flex-item app">
+                    <a class="app" title="Aplikacje Google" href="https://www.google.pl/intl/pl/about/products"
+                        aria-label="Aplikacje Google"><img class="app" src="Grafiki/aplikacje.svg" /></a>
 
-            </form>
-
-        </div>
-        <div class="listing">
-            <div class="searches">
-                <div class="basic">
-                    <a href="#" class="URL">
-                        <div>
-                            <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
-                                    class="light_URL"> > advanced > good-titles-snippets </span><span
-                                    class="triangle"></span></span>
-                            <br />
-                            <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
-                            </h1>
-                        </div>
-                    </a>
-                    <div class="content">
-                        <span>Gdy już znamy zapytanie użytkownika, możemy często znaleźć inny
-                            <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
-                            <em>wyszukiwarki</em> Google.
-                        </span>
-                    </div>
-                </div>
-                <div class="basic">
-                    <a href="#" class="URL">
-                        <div>
-                            <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
-                                    class="light_URL"> > advanced > good-titles-snippets </span><span
-                                    class="triangle"></span></span>
-                            <br />
-                            <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
-                            </h1>
-                        </div>
-                    </a>
-                    <div class="content">
-                        <span><span class="date">23 gru 2018 - </span>Gdy już znamy zapytanie użytkownika, możemy często
-                            znaleźć inny
-                            <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
-                            <em>wyszukiwarki</em> Google.
-                        </span>
-                    </div>
-                </div>
-                <div class="basic">
-                    <a href="#" class="URL">
-                        <div>
-                            <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
-                                    class="light_URL"> > advanced > good-titles-snippets </span><span
-                                    class="triangle"></span></span>
-                            <br />
-                            <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
-                            </h1>
-                        </div>
-                    </a>
-                    <div class="content">
-                        <span><span class="date">23 gru 2018 - </span>Gdy już znamy zapytanie użytkownika, możemy często
-                            znaleźć inny
-                            <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
-                            <em>wyszukiwarki</em> Google.
-                        </span>
-                    </div>
-                </div>
-                <div class="basic">
-                    <a href="#" class="URL">
-                        <div>
-                            <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
-                                    class="light_URL"> > advanced > good-titles-snippets </span><span
-                                    class="triangle"></span></span>
-                            <br />
-                            <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
-                            </h1>
-                        </div>
-                    </a>
-                    <div class="content">
-                        <span><span class="date">23 gru 2018 - </span>Gdy już znamy zapytanie użytkownika, możemy często
-                            znaleźć inny
-                            <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
-                            <em>wyszukiwarki</em> Google.
-                        </span>
-                    </div>
-                </div>
-                <div class="basic">
-                    <a href="#" class="URL">
-                        <div>
-                            <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
-                                    class="light_URL"> > advanced > good-titles-snippets </span><span
-                                    class="triangle"></span></span>
-                            <br />
-                            <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
-                            </h1>
-                        </div>
-                    </a>
-                    <div class="content">
-                        <span><span class="date">23 gru 2018 - </span>Gdy już znamy zapytanie użytkownika, możemy często
-                            znaleźć inny
-                            <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
-                            <em>wyszukiwarki</em> Google.
-                        </span>
-                    </div>
-                </div>
-                <div class="basic">
-                    <a href="#" class="URL">
-                        <div>
-                            <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
-                                    class="light_URL"> > advanced > good-titles-snippets </span><span
-                                    class="triangle"></span></span>
-                            <br />
-                            <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
-                            </h1>
-                        </div>
-                    </a>
-                    <div class="content">
-                        <span><span class="date">23 gru 2018 - </span>Gdy już znamy zapytanie użytkownika, możemy często
-                            znaleźć inny
-                            <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
-                            <em>wyszukiwarki</em> Google.
-                        </span>
-                    </div>
-                </div>
-                <div class="basic">
-                    <a href="#" class="URL">
-                        <div>
-                            <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
-                                    class="light_URL"> > advanced > good-titles-snippets </span><span
-                                    class="triangle"></span></span>
-                            <br />
-                            <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
-                            </h1>
-                        </div>
-                    </a>
-                    <div class="content">
-                        <span><span class="date">23 gru 2018 - </span>Gdy już znamy zapytanie użytkownika, możemy często
-                            znaleźć inny
-                            <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
-                            <em>wyszukiwarki</em> Google.
-                        </span>
-                    </div>
-                </div>
+                    <a class="blue-button"
+                        href="https://accounts.google.com/ServiceLogin?hl=pl&amp;passive=true&amp;continue=https://www.google.com/&amp;ec=GAZAmgQ">Zaloguj
+                        się</a>
+                </section>
             </div>
-            <div class="similar">
-                <h3>Podobne wyszukiwania</h3>
-                <div class="flex-container">
-                    <div class="cont_central">
-                        <a href="#">
-                            <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
-                            <span><b>bootstrap 4 sticky-top column</b></span>
-                        </a>
-                        <a href="#">
-                            <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
-                            <span><b>bootstrap 4 sticky-top column</b></span>
-                        </a>
-                        <a href="#">
-                            <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
-                            <span><b>bootstrap 4 sticky-top column</b></span>
-                        </a>
-                        <a href="#">
-                            <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
-                            <span><b>bootstrap 4 sticky-top column</b></span>
-                        </a>
+            <div class="navigation">
+                <section class="referance active">Wszystko</section>
+                <section class="referance">Grafika</section>
+                <section class="referance">Mapy</section>
+                <section class="referance">Wiadomości</section>
+                <section class="referance">Wideo</section>
+                <section class="referance">Więcej</section>
+                <section class="referance">Ustawienia</section>
+                <section class="referance">Narzędzia</section>
+
+            </div>
+        </header>
+
+        <main>
+
+            <div class="m-flex-cont">
+                <ul>
+                    <li v-for="city in filteredCities">
+                        {{ city.name }}
+                    </li>
+                </ul>
+                <div class="searches-time">Około 151 000 000 wyników (0,51 s)</div>
+                <section class="m-flex-item"><a id="ggl-main-link"
+                        href="https://www.google.com/webhp?hl=pl&sa=X&ved=0ahUKEwj4qcOGvtPvAhWPtYsKHYjEAlgQPAgI"
+                        title="Przejdź do strony głównej Google"><img class="googleLogo" alt="Google"
+                            src="Grafiki/Google-Logo.png" /></a></section>
+                <form class="search" action="/search">
+                    <section class="m-flex-item stripe-flex from_main">
+                        <div class="inside">
+
+                            <img class="inputIcon" src="Grafiki/search.svg" />
+                            <input class="inputSearch" ref="first" type="text" aria-label="Szukaj" maxlength="2048"
+                                v-model="googleSearch" placeholder="Szukaj" />
+                            <img title="Wyczyść" class="inputIcon-clear" src="Grafiki/clear.svg" aria-label="Wyczyść"
+                                role="button" />
+                            <img title="Narzędzia do wprowadzania tekstu" class="inputIcon-keyboard"
+                                src="Grafiki/keyboard.svg" aria-label="Narzędzia do wprowadzania tekstu"
+                                role="button" />
+
+                        </div>
+                    </section>
+                    <div class="m-flex-item greyButtons">
+                        <input class="grey-button sub" type="submit" value="Szukaj w Google" />
+                        <input class="grey-button" type="submit" value="Szczęśliwy traf" />
+                        {{ googleSearch }}
                     </div>
-                    
-                    <div class="cont_central">
-                        <a href="#">
-                            <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
-                            <span><b>bootstrap 4 sticky-top column</b></span>
+
+                </form>
+
+            </div>
+            <div class="listing">
+                <div class="searches">
+                    <div class="basic">
+                        <a href="#" class="URL">
+                            <div>
+                                <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
+                                        class="light_URL"> > advanced > good-titles-snippets </span><span
+                                        class="triangle"></span></span>
+                                <br />
+                                <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
+                                </h1>
+                            </div>
                         </a>
-                        <a href="#">
-                            <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
-                            <span><b>bootstrap 4 sticky-top column</b></span>
+                        <div class="content">
+                            <span>Gdy już znamy zapytanie użytkownika, możemy często znaleźć inny
+                                <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
+                                <em>wyszukiwarki</em> Google.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="basic">
+                        <a href="#" class="URL">
+                            <div>
+                                <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
+                                        class="light_URL"> > advanced > good-titles-snippets </span><span
+                                        class="triangle"></span></span>
+                                <br />
+                                <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
+                                </h1>
+                            </div>
                         </a>
-                        <a href="#">
-                            <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
-                            <span><b>bootstrap 4 sticky-top column</b></span>
+                        <div class="content">
+                            <span><span class="date">23 gru 2018 - </span>Gdy już znamy zapytanie użytkownika, możemy
+                                często
+                                znaleźć inny
+                                <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
+                                <em>wyszukiwarki</em> Google.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="basic">
+                        <a href="#" class="URL">
+                            <div>
+                                <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
+                                        class="light_URL"> > advanced > good-titles-snippets </span><span
+                                        class="triangle"></span></span>
+                                <br />
+                                <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
+                                </h1>
+                            </div>
                         </a>
-                        <a href="#">
-                            <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
-                            <span><b>bootstrap 4 sticky-top column</b></span>
+                        <div class="content">
+                            <span><span class="date">23 gru 2018 - </span>Gdy już znamy zapytanie użytkownika, możemy
+                                często
+                                znaleźć inny
+                                <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
+                                <em>wyszukiwarki</em> Google.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="basic">
+                        <a href="#" class="URL">
+                            <div>
+                                <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
+                                        class="light_URL"> > advanced > good-titles-snippets </span><span
+                                        class="triangle"></span></span>
+                                <br />
+                                <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
+                                </h1>
+                            </div>
                         </a>
+                        <div class="content">
+                            <span><span class="date">23 gru 2018 - </span>Gdy już znamy zapytanie użytkownika, możemy
+                                często
+                                znaleźć inny
+                                <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
+                                <em>wyszukiwarki</em> Google.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="basic">
+                        <a href="#" class="URL">
+                            <div>
+                                <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
+                                        class="light_URL"> > advanced > good-titles-snippets </span><span
+                                        class="triangle"></span></span>
+                                <br />
+                                <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
+                                </h1>
+                            </div>
+                        </a>
+                        <div class="content">
+                            <span><span class="date">23 gru 2018 - </span>Gdy już znamy zapytanie użytkownika, możemy
+                                często
+                                znaleźć inny
+                                <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
+                                <em>wyszukiwarki</em> Google.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="basic">
+                        <a href="#" class="URL">
+                            <div>
+                                <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
+                                        class="light_URL"> > advanced > good-titles-snippets </span><span
+                                        class="triangle"></span></span>
+                                <br />
+                                <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
+                                </h1>
+                            </div>
+                        </a>
+                        <div class="content">
+                            <span><span class="date">23 gru 2018 - </span>Gdy już znamy zapytanie użytkownika, możemy
+                                często
+                                znaleźć inny
+                                <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
+                                <em>wyszukiwarki</em> Google.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="basic">
+                        <a href="#" class="URL">
+                            <div>
+                                <span class="top_URL"><span class="dark_URL">developers.google.com</span><span
+                                        class="light_URL"> > advanced > good-titles-snippets </span><span
+                                        class="triangle"></span></span>
+                                <br />
+                                <h1 class="original_link visited">Jak tworzyć dobre tytuły i krótkie opisy w wynikach...
+                                </h1>
+                            </div>
+                        </a>
+                        <div class="content">
+                            <span><span class="date">23 gru 2018 - </span>Gdy już znamy zapytanie użytkownika, możemy
+                                często
+                                znaleźć inny
+                                <em>tekst</em> na stronie, ... daj nam znać na naszym Forum pomocy Centrum
+                                <em>wyszukiwarki</em> Google.
+                            </span>
+                        </div>
                     </div>
                 </div>
-            <div class="cont_central">
-            <table class="ggl_table">
-                    <tr>
-                        <td>
+                <div class="similar">
+                    <h3>Podobne wyszukiwania</h3>
+                    <div class="flex-container">
+                        <div class="cont_central">
                             <a href="#">
-                                <div class="cont_central">
-                                    <div class="letter Blue arrow"><</div>
-                                    <div class="number">Poprzednia</div>
-                                </div>
-                          </a>
-                        </td>
-                        <td>
-                                <div class="cont_central">
-                                    <div class="letter Blue">G</div>
-                                    <div class="number"></div>
-                                </div>
-                        </td>
-                        <td>
-                            <a class="This_page" href="#">
-                                <div class="cont_central">
-                                    <div class="letter Red">o</div>
-                                    <div class="number This_page">1</div>
-                                </div>
-                          </a>
-                        </td>
-                        <td>
+                                <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
+                                <span><b>bootstrap 4 sticky-top column</b></span>
+                            </a>
                             <a href="#">
-                                <div class="cont_central">
-                                    <div class="letter Yellow">o</div>
-                                    <div class="number">2</div>
-                                </div>
-                          </a>
-                        </td>
-                        <td>
+                                <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
+                                <span><b>bootstrap 4 sticky-top column</b></span>
+                            </a>
                             <a href="#">
-                                <div class="cont_central">
-                                    <div class="letter Yellow">o</div>
-                                    <div class="number">3</div>
-                                </div>
-                          </a>
-                        </td>
-                        <td>
+                                <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
+                                <span><b>bootstrap 4 sticky-top column</b></span>
+                            </a>
                             <a href="#">
-                                <div class="cont_central">
-                                    <div class="letter Yellow">o</div>
-                                    <div class="number">4</div>
-                                </div>
-                          </a>
-                        </td>
-                        <td>
+                                <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
+                                <span><b>bootstrap 4 sticky-top column</b></span>
+                            </a>
+                        </div>
+
+                        <div class="cont_central">
                             <a href="#">
-                                <div class="cont_central">
-                                    <div class="letter Yellow">o</div>
-                                    <div class="number">5</div>
-                                </div>
-                          </a>
-                        </td>
-                        <td>
+                                <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
+                                <span><b>bootstrap 4 sticky-top column</b></span>
+                            </a>
                             <a href="#">
-                                <div class="cont_central">
-                                    <div class="letter Yellow">o</div>
-                                    <div class="number">6</div>
-                                </div>
-                          </a>
-                        </td><td>
+                                <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
+                                <span><b>bootstrap 4 sticky-top column</b></span>
+                            </a>
                             <a href="#">
-                                <div class="cont_central">
-                                    <div class="letter Yellow">o</div>
-                                    <div class="number">7</div>
-                                </div>
-                          </a>
-                        </td><td>
+                                <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
+                                <span><b>bootstrap 4 sticky-top column</b></span>
+                            </a>
                             <a href="#">
-                                <div class="cont_central">
-                                    <div class="letter Yellow">o</div>
-                                    <div class="number">8</div>
-                                </div>
-                          </a>
-                        </td>
-                        <td>
-                            <a href="#">
-                                <div class="cont_central">
-                                    <div class="letter Yellow">o</div>
-                                    <div class="number">9</div>
-                                </div>
-                          </a>
-                        </td><td>
-                            <a href="#">
-                                <div class="cont_central">
-                                    <div class="letter Yellow">o</div>
-                                    <div class="number">10</div>
-                                </div>
-                          </a>
-                        </td>
-                        <td>
-                                <div class="cont_central">
-                                    <div class="letter Blue">g</div>
-                                    <div class="number"></div>
-                                </div>
-                        </td>
-                        <td>
-                                <div class="cont_central">
-                                    <div class="letter Green">l</div>
-                                    <div class="number"></div>
-                                </div>
-                        </td>
-                        <td>
-                                <div class="cont_central">
-                                    <div class="letter Red">e</div>
-                                    <div class="number"></div>
-                                </div>
-                        </td>
-                        <td>
-                            <a href="#">
-                                <div class="cont_central">
-                                    <div class="letter Blue arrow">></div>
-                                    <div class="number">Następna</div>
-                                </div>
-                          </a>
-                        </td>
-                    </tr>
-            </table>
-        </div>
-        </div>
-    </main>
-    <footer class="bottomest">
-        <div class="bottom">
-            <div class="locate">Polska<span class="location"><span class="dot"></span><b> 12-234, Miasto</b> - Z Twojego
-                    adresu internetowego - <a href="#">Użyj dokładnej lokalizacji</a> - <a href="#">Dowiedz się
-                        więcej</a></span></div>
-        </div>
-        <div class=" f-flex-container">
-            <section class="f-flex-item section-flex i1st">
-                <a class="section-flex-item clean-link pad"
-                    href="https://about.google/?utm_source=google-PL&amp;utm_medium=referral&amp;utm_campaign=hp-footer&amp;fg=1">O
-                    nas</a>
-                <a class="section-flex-item clean-link pad"
-                    href="https://www.google.com/intl/pl_pl/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&amp;utm_source=google.com&amp;utm_medium=referral&amp;utm_campaign=google_hpafooter&amp;fg=1">Reklamuj
-                    się</a>
-                <a class="section-flex-item clean-link pad"
-                    href="https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&amp;utm_source=google.com&amp;utm_medium=referral&amp;utm_campaign=google_hpbfooter&amp;fg=1">Dla
-                    firm</a>
-                <a class="section-flex-item clean-link pad" href="https://google.com/search/howsearchworks/?fg=1">Jak
-                    działa wyszukiwania</a>
-            </section>
-            <section class="f-flex-item leafy">
-                <a class="clean-link"
-                    href="https://sustainability.google/intl/pl/commitments-europe/?utm_source=googlehpfooter&amp;utm_medium=housepromos&amp;utm_campaign=bottom-footer&amp;utm_content=">
-                    <img class="leaf" src="Grafiki/leaf.svg">Neutralność węglowa od 2007 roku</a>
-            </section>
-            <section class="f-flex-item section-flex i3rd">
-                <a class="section-flex-item clean-link additional"
-                    href="https://support.google.com/websearch/?p=ws_results_help&amp;hl=pl&amp;fg=1">Pomoc</a>
-                <a class="section-flex-item clean-link additional" href="#">Prześlij opinię</a>
-                <a class="section-flex-item clean-link"
-                    href="https://policies.google.com/privacy?hl=pl&amp;fg=1">Prywatność</a>
-                <a class="section-flex-item clean-link"
-                    href="https://policies.google.com/terms?hl=pl&amp;fg=1">Warunki</a>
-                <div class="section-flex-item menubutton">
-                    <button class="menu clean-link clean-button" aria-haspopup="true" id="menu1"
-                        aria-controls="menu2">Ustawienia</button>
-                    <ul class="menu-list" role="menu" id="menu2" aria-labelledby="menu1">
-                        <!--zeby to zrobic potrzeba chyba java scripta-->
-                        <li role="none"><a class="menu" tabindex="-1"
-                                href="https://www.google.com/preferences?hl=pl&amp;fg=1" role="menuitem">Ustawienia
-                                wyszukiwania</a></li>
-                        <li role="none"><a class="menu" tabindex="-1" href="/advanced_search?hl=pl&amp;fg=1"
-                                role="menuitem">Szukanie zaawansowane</a></li>
-                        <li role="none"><a class="menu" tabindex="-1"
-                                href="/history/privacyadvisor/search/unauth?utm_source=googlemenu&amp;fg=1"
-                                role="menuitem">Twoje dane w wyszukiwarce</a></li>
-                        <li role="none"><a class="menu" tabindex="-1" href="/history/optout?hl=pl&amp;fg=1"
-                                role="menuitem">Historia wyszukiwania</a></li>
-                        <li role="none"><a class="menu" tabindex="-1"
-                                href="https://support.google.com/websearch/?p=ws_results_help&amp;hl=pl&amp;fg=1"
-                                role="menuitem">Pomoc dotycząca wyszukiwania</a></li>
-                        <li class="menu" role="none"><button class="menu" role="menuitem">Prześlij opinię</button></li>
-                    </ul>
+                                <img class="inputIcon SearchIcon" src="Grafiki/search.svg" />
+                                <span><b>bootstrap 4 sticky-top column</b></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cont_central">
+                        <table class="ggl_table">
+                            <tr>
+                                <td>
+                                    <a href="#">
+                                        <div class="cont_central">
+                                            <div class="letter Blue arrow">
+                                                << /div>
+                                                    <div class="number">Poprzednia</div>
+                                            </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <div class="cont_central">
+                                        <div class="letter Blue">G</div>
+                                        <div class="number"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a class="This_page" href="#">
+                                        <div class="cont_central">
+                                            <div class="letter Red">o</div>
+                                            <div class="number This_page">1</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="cont_central">
+                                            <div class="letter Yellow">o</div>
+                                            <div class="number">2</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="cont_central">
+                                            <div class="letter Yellow">o</div>
+                                            <div class="number">3</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="cont_central">
+                                            <div class="letter Yellow">o</div>
+                                            <div class="number">4</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="cont_central">
+                                            <div class="letter Yellow">o</div>
+                                            <div class="number">5</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="cont_central">
+                                            <div class="letter Yellow">o</div>
+                                            <div class="number">6</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="cont_central">
+                                            <div class="letter Yellow">o</div>
+                                            <div class="number">7</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="cont_central">
+                                            <div class="letter Yellow">o</div>
+                                            <div class="number">8</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="cont_central">
+                                            <div class="letter Yellow">o</div>
+                                            <div class="number">9</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="cont_central">
+                                            <div class="letter Yellow">o</div>
+                                            <div class="number">10</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <div class="cont_central">
+                                        <div class="letter Blue">g</div>
+                                        <div class="number"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="cont_central">
+                                        <div class="letter Green">l</div>
+                                        <div class="number"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="cont_central">
+                                        <div class="letter Red">e</div>
+                                        <div class="number"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="cont_central">
+                                            <div class="letter Blue arrow">></div>
+                                            <div class="number">Następna</div>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-            </section>
-        </div>
-    </footer>
-
-
-
-</div>
+        </main>
+        <footer class="bottomest">
+            <div class="bottom">
+                <div class="locate">Polska<span class="location"><span class="dot"></span><b> 12-234, Miasto</b> - Z
+                        Twojego
+                        adresu internetowego - <a href="#">Użyj dokładnej lokalizacji</a> - <a href="#">Dowiedz się
+                            więcej</a></span></div>
+            </div>
+            <div class=" f-flex-container">
+                <section class="f-flex-item section-flex i1st">
+                    <a class="section-flex-item clean-link pad"
+                        href="https://about.google/?utm_source=google-PL&amp;utm_medium=referral&amp;utm_campaign=hp-footer&amp;fg=1">O
+                        nas</a>
+                    <a class="section-flex-item clean-link pad"
+                        href="https://www.google.com/intl/pl_pl/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&amp;utm_source=google.com&amp;utm_medium=referral&amp;utm_campaign=google_hpafooter&amp;fg=1">Reklamuj
+                        się</a>
+                    <a class="section-flex-item clean-link pad"
+                        href="https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&amp;utm_source=google.com&amp;utm_medium=referral&amp;utm_campaign=google_hpbfooter&amp;fg=1">Dla
+                        firm</a>
+                    <a class="section-flex-item clean-link pad"
+                        href="https://google.com/search/howsearchworks/?fg=1">Jak
+                        działa wyszukiwania</a>
+                </section>
+                <section class="f-flex-item leafy">
+                    <a class="clean-link"
+                        href="https://sustainability.google/intl/pl/commitments-europe/?utm_source=googlehpfooter&amp;utm_medium=housepromos&amp;utm_campaign=bottom-footer&amp;utm_content=">
+                        <img class="leaf" src="Grafiki/leaf.svg">Neutralność węglowa od 2007 roku</a>
+                </section>
+                <section class="f-flex-item section-flex i3rd">
+                    <a class="section-flex-item clean-link additional"
+                        href="https://support.google.com/websearch/?p=ws_results_help&amp;hl=pl&amp;fg=1">Pomoc</a>
+                    <a class="section-flex-item clean-link additional" href="#">Prześlij opinię</a>
+                    <a class="section-flex-item clean-link"
+                        href="https://policies.google.com/privacy?hl=pl&amp;fg=1">Prywatność</a>
+                    <a class="section-flex-item clean-link"
+                        href="https://policies.google.com/terms?hl=pl&amp;fg=1">Warunki</a>
+                    <div class="section-flex-item menubutton">
+                        <button class="menu clean-link clean-button" aria-haspopup="true" id="menu1"
+                            aria-controls="menu2">Ustawienia</button>
+                        <ul class="menu-list" role="menu" id="menu2" aria-labelledby="menu1">
+                            <!--zeby to zrobic potrzeba chyba java scripta-->
+                            <li role="none"><a class="menu" tabindex="-1"
+                                    href="https://www.google.com/preferences?hl=pl&amp;fg=1" role="menuitem">Ustawienia
+                                    wyszukiwania</a></li>
+                            <li role="none"><a class="menu" tabindex="-1" href="/advanced_search?hl=pl&amp;fg=1"
+                                    role="menuitem">Szukanie zaawansowane</a></li>
+                            <li role="none"><a class="menu" tabindex="-1"
+                                    href="/history/privacyadvisor/search/unauth?utm_source=googlemenu&amp;fg=1"
+                                    role="menuitem">Twoje dane w wyszukiwarce</a></li>
+                            <li role="none"><a class="menu" tabindex="-1" href="/history/optout?hl=pl&amp;fg=1"
+                                    role="menuitem">Historia wyszukiwania</a></li>
+                            <li role="none"><a class="menu" tabindex="-1"
+                                    href="https://support.google.com/websearch/?p=ws_results_help&amp;hl=pl&amp;fg=1"
+                                    role="menuitem">Pomoc dotycząca wyszukiwania</a></li>
+                            <li class="menu" role="none"><button class="menu" role="menuitem">Prześlij opinię</button>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </footer>
+    </div>
 
 </body>
 <script>
     var app = new Vue({
-      el: '#app',
-      data: {
-        googleSearch:''
-      }
+        el: '#app',
+        data: {
+            googleSearch: '',
+            cities: window.cities,
+        },
+        updated() {
+            this.$nextTick(() => {
+
+                if (this.googleSearch > 0) {
+
+                    this.$refs.second.focus();
+
+                } else {
+
+                    this.$refs.first.focus();
+
+                }
+
+            });
+
+        },
+        computed: {
+            filteredCities: function () {
+                // `this` points to the vm instance
+                //return this.cities.filter(city => city.name.includes(this.googleSearch)).slice(1, 10)
+            }
+        },
+
     })
-  </script>
+</script>
+
 </html>
