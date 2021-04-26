@@ -15,8 +15,7 @@
 </head>
 
 <body class="home">
-    <div id="app" :class="{results : googleSearch.length > 0}">
-
+    <div id="app" :class="{results : isActive()}">
 
         <header>
             <div class="h-flex-cont">
@@ -24,10 +23,13 @@
                     <a class="clean-dark-link" href="https://mail.google.com/mail/&ogbl">Gmail</a>
                     <a class="clean-dark-link" href="https://www.google.pl/imghp?hl=pl&ogbl">Grafika</a>
                 </section>
-                <section class="m-flex-item stripe-flex top_stripe">
+                <div class=" top_stripe">
+                <section class="m-flex-item stripe-flex">
                     <div class="inside">
+                        <img class="inputIcon hidden" src="Grafiki/search.svg" :class="{visible :  focused}"/>
                         <input class="inputSearch" ref="top" v-model="googleSearch"  type="text"
-                            aria-label="Szukaj" maxlength="2048" />
+                            aria-label="Szukaj" maxlength="2048" @focus="focused = true"
+                            @blur="focused = false"/>
                         <div class="X">
 
                             <img title="Wyczyść" class="inputIcon-clear" src="Grafiki/clear.svg" aria-label="Wyczyść"
@@ -39,7 +41,20 @@
                         <button id="SearchButton" type="submit" aria-label="Szukaj w Google"><img class="inputIcon"
                                 src="Grafiki/search_blue.svg" /></button>
                     </div>
+                    <div  id="cityNTop" class="cityNames" :class="{visible : googleSearch.length > 0 /*&& focused*/ && filteredCities.length>0}" >
+                        <ul >
+                            <li  v-for="(city,index) in filteredCities" >
+                                <div class="listElement">
+                                    <img class="inputIcon" src="Grafiki/search.svg" />
+                                    <a href="#" v-html="boldenize(city)" v-on:click="selected(index)"><b>{{ city }}</b></a>
+                                    
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
                 </section>
+            </div>
                 <section class="h-flex-item app">
                     <a class="app" title="Aplikacje Google" href="https://www.google.pl/intl/pl/about/products"
                         aria-label="Aplikacje Google"><img class="app" src="Grafiki/aplikacje.svg" /></a>
@@ -65,40 +80,46 @@
         <main>
 
             <div class="m-flex-cont">
-                <div id=citiesNames>
-                <ul >
-                    <li v-for="city in filteredCities">
-                        {{ city.name }}
-                    </li>
-                </ul>
-            </div>
+                
                 <div class="searches-time">Około 151 000 000 wyników (0,51 s)</div>
                 <section class="m-flex-item"><a id="ggl-main-link"
                         href="https://www.google.com/webhp?hl=pl&sa=X&ved=0ahUKEwj4qcOGvtPvAhWPtYsKHYjEAlgQPAgI"
                         title="Przejdź do strony głównej Google"><img class="googleLogo" alt="Google"
                             src="Grafiki/Google-Logo.png" /></a></section>
                 <form class="search" action="/search">
-                    <section class="m-flex-item stripe-flex from_main">
+                    <section class="m-flex-item stripe-flex from_main" >
                         <div class="inside">
 
                             <img class="inputIcon" src="Grafiki/search.svg" />
                             <input class="inputSearch" ref="bottom" type="text" aria-label="Szukaj" maxlength="2048"
-                                v-model="googleSearch" placeholder="Szukaj" />
+                                v-model="googleSearch" placeholder="Szukaj" @focus="focused = true"
+                                @blur="focused = false" @keyup.enter="enterClicked()"/>
                             <img title="Wyczyść" class="inputIcon-clear" src="Grafiki/clear.svg" aria-label="Wyczyść"
                                 role="button" />
                             <img title="Narzędzia do wprowadzania tekstu" class="inputIcon-keyboard"
                                 src="Grafiki/keyboard.svg" aria-label="Narzędzia do wprowadzania tekstu"
                                 role="button" />
-
+ 
+                        </div>
+                        <div  id="cityNBottom" class="cityNames" :class="{visible : googleSearch.length > 0 /*&& focused*/ && filteredCities.length>0}" >
+                            <ul >
+                                <li  v-for="(city,index) in filteredCities" >
+                                    <div class="listElement">
+                                        <img class="inputIcon" src="Grafiki/search.svg" />
+                                        <a href="#" v-html="boldenize(city)" v-on:click="selected(index)"><b>{{ city }}</b></a>
+                                        
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </section>
-                    <div class="m-flex-item greyButtons">
-                        <input class="grey-button sub" type="submit" value="Szukaj w Google" />
-                        <input class="grey-button" type="submit" value="Szczęśliwy traf" />
-                    </div>
+                    
 
                 </form>
-
+                <div class="m-flex-item greyButtons" :class="{hidden : googleSearch.length > 0 && focused && filteredCities.length>0}">
+                    <input class="grey-button sub" type="submit" value="Szukaj w Google" />
+                    <input class="grey-button" type="submit" value="Szczęśliwy traf" />
+                </div>
             </div>
             <div class="listing">
                 <div class="searches">
@@ -289,7 +310,7 @@
                                     <a href="#">
                                         <div class="cont_central">
                                             <div class="letter Blue arrow">
-                                                << /div>
+                                                < </div>
                                                     <div class="number">Poprzednia</div>
                                             </div>
                                     </a>
@@ -471,6 +492,7 @@
                 </section>
             </div>
         </footer>
+        
     </div>
 
 </body>
@@ -480,12 +502,13 @@
         data: {
             googleSearch: '',
             cities: window.cities,
+            focused: false,
+            change: false,
         },
         updated() {
             this.$nextTick(() => {
 
-                if (this.googleSearch.length > 0) {
-
+                if (this.change) {
                     this.$refs.top.focus();
 
                 } else {
@@ -503,10 +526,38 @@
                 if(result.length>10){
                     return result.slice(1, 11);
                 }
-                return result;
+                else{
+                    return result;
+                }
+                
             }
         },
+        methods:{
+            boldenize(city){
+                let re = new RegExp(this.googleSearch,"gi");
+                let bolden="<b>"+city.name.replace(re, match=>{
+                     return "<span class='normal'>"+ match+"</span>";
+                    })+"</b>";
+                console.log(bolden);
 
+                return bolden;
+            },
+            enterClicked() {
+                this.change= true;
+
+             },
+             selected(i){
+                this.googleSearch=this.filteredCities[i].name;
+                this.enterClicked();
+             },
+             isActive(){
+                if(this.googleSearch.length==0){
+                    this.change=false;
+                }
+                return this.change;
+
+             }
+        }
     })
 </script>
 

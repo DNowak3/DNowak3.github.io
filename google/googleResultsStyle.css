@@ -80,6 +80,10 @@ body .results{
 }
 .results .inputSearch{
     align-self:center;
+    margin-left: 13px;
+}
+.results .inputSearch:focus{
+    margin-left: 0;
 }
 .results .X{
     display:flex;
@@ -89,20 +93,22 @@ body .results{
 }
 .results .inputIcon-keyboard{
     align-self:center;
-    padding-right: 15px;
+    padding-right: 10px;
     padding-left: 15px;
 }
 .results .inputIcon{
     align-self:center;
 }
+
 .results #SearchButton{
     display: flex;
-    padding-right: 13px;
+    padding-right: 20px;
     height: 44px;
     width: 44px;
     background: transparent;
 border: none;
 cursor: pointer;
+justify-content: center;
 }
 .results .navigation{
     margin-left: 169px;
@@ -115,7 +121,6 @@ cursor: pointer;
     margin-left: 133px;
     width: 692px;
     height:44px;
-    padding-left: 27px;
     margin-right: 40px;
     padding-top:0px;
     padding-bottom:0px;
@@ -143,7 +148,7 @@ padding: 16px 12px 12px 10px;
     border-bottom: 1px solid #ebebeb;
     padding-bottom:15px;
     min-width: 1261px;
-    
+    z-index: 1;
 }
 
 /*Main*/
@@ -158,6 +163,7 @@ padding: 16px 12px 12px 10px;
     padding-right: 8px;
     min-width: 652px;
     margin-left: 180px;
+    align-self: flex-start;
 }
 
 
@@ -238,17 +244,10 @@ width: 10px;
 .results header .links{
     display:none;
 }
-
-
-.results #citiesNames{
-    display:initial;
-    align-self: center;
-    line-height: 1.2rem;
-
-
+.results #cityNBottom{
+    display: none;
 }
-#citiesNames li{
-    list-style-type:decimal;
-    color: #1a73e8;
 
+.results .visible {
+    display: block;
 }
