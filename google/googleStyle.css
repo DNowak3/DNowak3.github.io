@@ -249,40 +249,7 @@ body .blue-button:active{
     text-align:center;
 }
 
-.home .stripe-flex{
-    background: #fff;
-    display: flex;
-    border: 1px solid #dfe1e5;
-    flex-direction:column;
-    box-shadow: none;
-    border-radius: 30px;
-    height: auto;
-    width: auto;
-    line-height:normal;
-    margin-bottom:10px;
-    
-    margin-left: 0px;
-    z-index: 10;
 
-}
-.stripe-flex-items{
-    height:auto;
-}
-body .stripe-flex:hover,.stripe-flex:active {
-    box-shadow: 0 1px 6px rgba(32, 33, 36, .28);
-    border-color: rgba(223, 225, 229, 0)
-}
-.home .inside{
-    padding: 5px 19px 0 0;
-    flex: 1;
-    height:100%;
-    display: flex;
-    line-height:normal;
-    justify-content: space-between;
-    align-items: center;
-    
-
-}
 .home img.googleLogo{
     width:272px;
     height: 92px;
@@ -290,36 +257,7 @@ body .stripe-flex:hover,.stripe-flex:active {
     align-items: center;
 }
 
-body img.inputIcon{
-    width: 15px;
-    height: 15px;
-    padding-right: 13px;
-    padding-left: 13px;
-}
-body img.inputIcon-keyboard{
-    width: 20px;
-    height: 20px;
-    cursor:pointer;
-    padding-right: 0;
-    padding-left:10px;
-    margin-right:0
-}
-body .inputSearch{
-    color: transparent;
-    flex: 100%;
-    width:100%;
-    white-space: pre;
-    height: 34px;
-    padding:0;
-    margin:0;
-    background-color: transparent;
-    border: none;
-    color: rgba(0,0,0,.87);
-    word-wrap: break-word;
-    font-size: 16px;
-    align-self: flex-end;
 
-}
 .home .grey-button{
     background-color: #f8f9fa;
 border: 1px solid #f8f9fa;
@@ -450,44 +388,3 @@ body .clean-link:hover{
 
 
 
-.cityNames{
-    display: none;
-    line-height: 1.5rem;
-    border-top: 1px solid #dfe1e5;
-    /*background-color: #fff;*/
-    z-index:10;
-    margin-bottom:18px;
-    border-bottom-left-radius: 25%;
-    border-bottom-right-radius: 25%;
-    z-index: 10;
-}
-.cityNames li{
-    padding:2px 0px;
-    cursor: pointer;
-}
-
-.listElement:hover,.listElement:active, .listElement:focus{
-    background-color: #dfe1e5;
-
-}
-.liFocused{
-    background-color: #dfe1e5;
-}
-.listElement a{
-    text-decoration: none;
-    color:inherit;
-    font-size: 1.1em;
-    
-}
-.visible {
-    display: block;
-}
-.show{
-    visibility:visible;
-}
- .hidden{
-    display: none;
-}
-.normal{
-    font-weight: 500;
-}

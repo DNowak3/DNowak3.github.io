@@ -59,72 +59,11 @@ body .results{
     align-items: center;
 }
 
-.results img.inputIcon-clear{
-    width: 14px;
-    height: 14px;
-    margin-right: 14px;
-    padding-left:10px;
-    align-self:center;
-}
-.results span.line{
-    border-right: 1px solid #dfe1e5;
-    display: inline-block;
-    height: 34px;
-}
-.results .inside{
-    padding: 0px;
-    width:100%;
-    height:44px;
-    display: flex;
-    line-height:normal;
-}
-.results .inputSearch{
-    align-self:center;
-    margin-left: 13px;
-}
-.results .inputSearch:focus{
-    margin-left: 0;
-}
-.results .X{
-    display:flex;
-    align-self:center;
-    cursor:pointer;
-    margin:0px;
-}
-.results .inputIcon-keyboard{
-    align-self:center;
-    padding-right: 10px;
-    padding-left: 15px;
-}
-.results .inputIcon{
-    align-self:center;
-}
 
-.results #SearchButton{
-    display: flex;
-    padding-right: 20px;
-    height: 44px;
-    width: 44px;
-    background: transparent;
-border: none;
-cursor: pointer;
-justify-content: center;
-}
 .results .navigation{
     margin-left: 169px;
 }
-.results .top_stripe{
-    position: sticky;
-    top:0;
-    margin-bottom:22px;
-    margin-top:10px;
-    margin-left: 133px;
-    width: 692px;
-    height:44px;
-    margin-right: 40px;
-    padding-top:0px;
-    padding-bottom:0px;
-}
+
 .results .referance{
     display: initial;
     text-decoration: none;
@@ -244,10 +183,4 @@ width: 10px;
 .results header .links{
     display:none;
 }
-.results #cityNBottom{
-    display: none;
-}
 
-.results .visible {
-    display: block;
-}
