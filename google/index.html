@@ -11,6 +11,7 @@
 
     <script type="text/javascript" src="vue.js"></script>
     <script src="cities.js"></script>
+    <script src="autocompleter.js"></script>
     
     
     <title>Google</title>
@@ -27,28 +28,12 @@
                     <a class="clean-dark-link" href="https://mail.google.com/mail/&ogbl">Gmail</a>
                     <a class="clean-dark-link" href="https://www.google.pl/imghp?hl=pl&ogbl">Grafika</a>
                 </section>
-                <div class=" top_stripe">
-                <section class="m-flex-item stripe-flex">
-                    <div class="inside">
+                <div class="top_stripe">
+                <section class="m-flex-item ">
                         
-                        <!--<input class="inputSearch" ref="top" v-model="googleSearch"  type="text"
-                            aria-label="Szukaj" maxlength="2048" @focus="focused = true" @keyup.down="down()" @keyup.up="up()"
-                            @keyup.enter="enterClicked()"/>-->
-                            <v-autocompleter id="cityNTop" :options="cities" @enter="showResults"></v-autocompleter>
-                        <div class="X">
-
-                            <img title="Wyczyść" class="inputIcon-clear" src="Grafiki/clear.svg" aria-label="Wyczyść"
-                                role="button" />
-                            <span class="line"></span>
-                        </div>
-                        <img title="Narzędzia do wprowadzania tekstu" class="inputIcon-keyboard"
-                            src="Grafiki/keyboard.svg" aria-label="Narzędzia do wprowadzania tekstu" role="button" />
-                        <button id="SearchButton" type="submit" aria-label="Szukaj w Google"><img class="inputIcon"
-                                src="Grafiki/search_blue.svg" /></button>
-                    </div>
-                   
+                           <v-autocompleter id="cityNTop" ref="top" :options="cities"></v-autocompleter>
                 </section>
-            </div>
+                </div>
                 <section class="h-flex-item app">
                     <a class="app" title="Aplikacje Google" href="https://www.google.pl/intl/pl/about/products"
                         aria-label="Aplikacje Google"><img class="app" src="Grafiki/aplikacje.svg" /></a>
@@ -80,24 +65,11 @@
                         title="Przejdź do strony głównej Google"><img class="googleLogo" alt="Google"
                             src="Grafiki/Google-Logo.png" /></a></section>
                 <form class="search" action="/search">
-                    <section class="m-flex-item stripe-flex from_main" >
-                        <div class="inside">
-
-                            <img class="inputIcon" src="Grafiki/search.svg" />
-                            <v-autocompleter id="cityNTop" :options="cities" @enter="showResults"></v-autocompleter>
-                            <!--<input class="inputSearch" ref="bottom" type="text" aria-label="Szukaj" maxlength="2048"
-                                v-model="googleSearch" placeholder="Szukaj" @focus="focused = true"
-                                 @keyup.enter="enterClicked()" @keyup.down="down()" @keyup.up="up()"
-                                role="button" />-->
-                            <img title="Narzędzia do wprowadzania tekstu" class="inputIcon-keyboard"
-                                src="Grafiki/keyboard.svg" aria-label="Narzędzia do wprowadzania tekstu"
-                                role="button" />
-                            
-                        </div>
+                    <section class="m-flex-item  from_main" >
                         
+                            <v-autocompleter id="cityNTop" v-bind:options="cities" ref="bottom" @enter='showResults'></v-autocompleter>
                     </section>
                     
-
                 </form>
                 <div class="m-flex-item greyButtons" :class="{hidden : /*googleSearch.length > 0 && focused && filteredCities.length>0*/0}">
                     <input class="grey-button sub" type="submit" value="Szukaj w Google" />
@@ -414,6 +386,8 @@
                         </table>
                     </div>
                 </div>
+            </div>
+
         </main>
         <footer class="bottomest">
             <div class="bottom">
@@ -477,7 +451,57 @@
         </footer>
         
     </div>
-    <script src="autocompleter.js">
+    <script>
+        var app = new Vue({
+                el: '#app',
+                data:{
+                    cities: window.cities,
+                    
+                },
+                updated() {
+                    app.$nextTick(() => {
+
+                            if (app.$refs.bottom.change) {
+                                app.$refs.top.focus();
+
+                            } else {
+
+                                app.$refs.bottom.focus();
+
+                            }
+                        }
+                    )},
+                computed:{
+                    equalImput:function(){
+                        
+                        let value=''
+                        if(  document.getElementById("app").classList.contains('results')){
+                            value= app.$refs.top.googleSearch;
+                        }else{
+                            console.log(value);
+                            value= app.$refs.bottom.googleSearch;
+                            console.log(value);
+
+                        }
+                        app.$refs.top.googleSearch=app.$refs.bottom.googleSearch=value;
+                        return  value;
+                }},
+                methods:{
+                    showResults: function(){
+                        let value=app.$refs.bottom.googleSearch
+                        app.$refs.bottom.enterClicked()
+                        app.$refs.top.googleSearch=value
+                        if(app.$refs.top.googleSearch.length==0){
+                            app.$refs.bottom.googleSearch=''
+
+                        }
+                        app.$refs.top.change=true
+                        return this.change
+                    }
+                    //actualSearch: this.googleSearch
+                }
+                });
+            
     </script>
 </body>
 

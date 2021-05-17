@@ -81,9 +81,7 @@
     align-self:center;
     margin-left: 13px;
 }
-.results .inputSearch:focus{
-    margin-left: 0;
-}
+
 .results .X{
     display:flex;
     align-self:center;
@@ -170,6 +168,10 @@ body .stripe-flex:hover,.stripe-flex:active {
     line-height:normal;
     justify-content: space-between;
     align-items: center;
-    
+    flex-direction: row;
 
+}
+
+.home #SearchButton{
+    display: none;
 }
