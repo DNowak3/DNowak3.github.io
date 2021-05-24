@@ -30,8 +30,8 @@
                 </section>
                 <div class="top_stripe">
                 <section class="m-flex-item ">
-                        
-                           <v-autocompleter id="cityNTop" ref="top" :options="cities"></v-autocompleter>
+                    <v-autocompleter :value="googleSearch"
+                    @input="googleSearch = $event" id="cityNTop" ref="top" :options="cities"></v-autocompleter>
                 </section>
                 </div>
                 <section class="h-flex-item app">
@@ -57,7 +57,7 @@
         </header>
 
         <main>
-
+            {{googleSearch}}
             <div class="m-flex-cont">
                 <div class="searches-time">Około 151 000 000 wyników (0,51 s)</div>
                 <section class="m-flex-item"><a id="ggl-main-link"
@@ -67,7 +67,8 @@
                 <form class="search" action="/search">
                     <section class="m-flex-item  from_main" >
                         
-                            <v-autocompleter id="cityNTop" v-bind:options="cities" ref="bottom" @enter='showResults'></v-autocompleter>
+                            <v-autocompleter :value="googleSearch"
+                            @input="googleSearch = $event" id="cityNTop" v-bind:options="cities" ref="bottom" @enter='showResults'></v-autocompleter>
                     </section>
                     
                 </form>
@@ -456,49 +457,27 @@
                 el: '#app',
                 data:{
                     cities: window.cities,
-                    
+                    googleSearch:""
                 },
                 updated() {
                     app.$nextTick(() => {
 
                             if (app.$refs.bottom.change) {
-                                app.$refs.top.focus();
+                                app.$refs.top.$refs.placeToFocus.focus();
 
                             } else {
 
-                                app.$refs.bottom.focus();
+                                app.$refs.bottom.$refs.placeToFocus.focus()
 
                             }
                         }
                     )},
-                computed:{
-                    equalImput:function(){
-                        
-                        let value=''
-                        if(  document.getElementById("app").classList.contains('results')){
-                            value= app.$refs.top.googleSearch;
-                        }else{
-                            console.log(value);
-                            value= app.$refs.bottom.googleSearch;
-                            console.log(value);
-
-                        }
-                        app.$refs.top.googleSearch=app.$refs.bottom.googleSearch=value;
-                        return  value;
-                }},
                 methods:{
                     showResults: function(){
-                        let value=app.$refs.bottom.googleSearch
-                        app.$refs.bottom.enterClicked()
-                        app.$refs.top.googleSearch=value
-                        if(app.$refs.top.googleSearch.length==0){
-                            app.$refs.bottom.googleSearch=''
-
-                        }
+                        this.googleSearch=app.$refs.bottom.enterClicked()
                         app.$refs.top.change=true
                         return this.change
                     }
-                    //actualSearch: this.googleSearch
                 }
                 });
             
