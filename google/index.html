@@ -31,7 +31,7 @@
                 <div class="top_stripe">
                 <section class="m-flex-item ">
                     <v-autocompleter :value="googleSearch"
-                    @input="googleSearch = $event" id="cityNTop" ref="top" :options="cities"></v-autocompleter>
+                    @input="googleSearch = $event" id="cityNTop" ref="top" :options="cities" @enter='showResults'></v-autocompleter>
                 </section>
                 </div>
                 <section class="h-flex-item app">
@@ -473,7 +473,16 @@
                     )},
                 methods:{
                     showResults: function(){
-                        this.googleSearch=app.$refs.bottom.enterClicked()
+                        if (app.$refs.bottom.change) {
+                            this.googleSearch=app.$refs.top.enterClicked()
+
+                            } else {
+
+                                this.googleSearch=app.$refs.bottom.enterClicked()
+
+                            }
+                        
+                        
                         app.$refs.top.change=true
                         return this.change
                     }
