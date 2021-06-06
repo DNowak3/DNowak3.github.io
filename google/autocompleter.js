@@ -53,11 +53,12 @@ Vue.component("v-autocompleter", {
             focused: false,
             change: false,
             inFocus: -1,
-            searchedInput: '',
+            searchedInput: ''
         }
     },
     computed:{
         isActive() {
+            console.log(this.options)
             if (this.value.length == 0) {
                 this.change = false;
             }
@@ -79,6 +80,7 @@ Vue.component("v-autocompleter", {
                 this.searchedInput = this.value;
 
             }
+            console.log(this.filteredCities);
             this.results();
         }
     },
@@ -121,9 +123,12 @@ Vue.component("v-autocompleter", {
         },
         createFilteredCities(yes) {
             if (yes) {
-                let result = this.options.filter(city => city.name.includes(this.value));
+                let tmp=this.value;
+                let result = this.options.filter(city => city.name.includes(tmp));
+                console.log("Opt: ",this.options);   
+                console.log("Result: ",result); 
                 if (result.length > 10) {
-                    this.filteredCities = result.slice(1, 11);
+                    this.filteredCities = result.slice(0, 10);
                 }
                 else {
                     this.filteredCities = result;
@@ -143,6 +148,7 @@ Vue.component("v-autocompleter", {
             }
 
         }
+        
 
     }
 })

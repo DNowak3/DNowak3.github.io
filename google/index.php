@@ -10,9 +10,8 @@
     <link rel="shortcut icon" href="title_logo.svg" />
 
     <script type="text/javascript" src="vue.js"></script>
-    <script src="cities.js"></script>
     <script src="autocompleter.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js" integrity="sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     <title>Google</title>
 
@@ -31,7 +30,7 @@
                 <div class="top_stripe">
                 <section class="m-flex-item ">
                     <v-autocompleter :value="googleSearch"
-                    @input="googleSearch = $event" id="cityNTop" ref="top" :options="cities" @enter='showResults'></v-autocompleter>
+                    @input="googleSearch = $event" id="cityNTop" ref="top" :options="results" @enter='showResults'></v-autocompleter>
                 </section>
                 </div>
                 <section class="h-flex-item app">
@@ -65,9 +64,9 @@
                             src="Grafiki/Google-Logo.png" /></a></section>
                 <form class="search" action="/search">
                     <section class="m-flex-item  from_main" >
-                        
                             <v-autocompleter :value="googleSearch"
-                            @input="googleSearch = $event" id="cityNTop" v-bind:options="cities" ref="bottom" @enter='showResults'></v-autocompleter>
+                            @input="inputFunc($event)"
+                            id="cityNTop" v-bind:options="results" ref="bottom" @enter='showResults'></v-autocompleter>
                     </section>
                     
                 </form>
@@ -455,8 +454,8 @@
         var app = new Vue({
                 el: '#app',
                 data:{
-                    cities: window.cities,
-                    googleSearch:""
+                    googleSearch:"",
+                    results:[]
                 },
                 updated() {
                     app.$nextTick(() => {
@@ -485,7 +484,22 @@
                         
                         app.$refs.top.change=true
                         return this.change
-                    }
+                    },
+                    findResultsDebounced : Cowboy.debounce(100, function findResultsDebounced() {
+                console.log('Fetch: ', this.googleSearch);
+				console.log(`http://localhost:8080/search?name=${this.googleSearch}`);
+                fetch(`http://localhost:8080/search?name=${this.googleSearch}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('Data: ', data);
+                        this.results = data;
+                        app.$refs.bottom.$forceUpdate();
+                    });
+            }),
+        inputFunc:function(ev){
+            this.googleSearch=ev;
+            this.findResultsDebounced();
+        }
                 }
                 });
             
